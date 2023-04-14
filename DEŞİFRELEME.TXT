@@ -1,0 +1,24 @@
+sifreli_metin = "-ztrgurebapbzabjvfuvc"
+atbash_metni = ""
+for char in sifreli_metin[2:]:
+    if char.isalpha():
+        if char.isupper():
+            atbash_metni += chr(155 - ord(char))
+        else:
+            atbash_metni += chr(219 - ord(char))
+    else:
+        atbash_metni += char
+
+rot13_metni = ""
+for char in atbash_metni:
+    if char.isalpha():
+        if char.isupper():
+            rot13_metni += chr((ord(char) - 65 - 13) % 26 + 65)
+        else:
+            rot13_metni += chr((ord(char) - 97 - 13) % 26 + 97)
+    else:
+        rot13_metni += char
+
+orijinal_metin = rot13_metni
+print("Şifreli metin:", sifreli_metin)
+print("Orijinal metin:", orijinal_metin)
